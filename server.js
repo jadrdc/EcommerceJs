@@ -15,7 +15,7 @@ var cookieParser=require('cookie-parser');
 var flash=require('express-flash');
 
 
-var MongoStore=require('connect-mongo')(session);
+var MongoStore=require('connect-mongo/es5')(session);
 var passport=require('passport');
 
 
@@ -28,6 +28,8 @@ app.use(express.static(__dirname+'/public'));
 app.use(mainroutes);
 app.use(userroutes);
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session())
 
 app.use(
 session({
