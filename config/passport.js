@@ -4,12 +4,15 @@ var User=require('../models/user');
 /*Se llama con cada Post*/
 passport.serializeUser(function(user,done)
 {
+
   done(null,user._id);
 });
 
 /*Se llama con cada Get*/
-passport.deserializeUser(function(id,done)
+passport.deserializeUser (function(id,done)
 {
+
+
   User.findById(id,function(err,user)
 {
   done(err,user);
@@ -27,9 +30,6 @@ passReqToCallback : true
 User.findOne({email:email},function(err,user)
 {
 
-console.log(password);
-
-console.log(user);
 if(err) return done(err);
 if(!user)done(null,false);
 

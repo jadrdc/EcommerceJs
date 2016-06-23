@@ -4,19 +4,26 @@ var passport=require('passport');
 var passportConf= require('../config/passport');
 
 
-router.get('/profile',function(req,res)
+router.get('/profile',function(req,res,next)
 {
-  res.render('accounts/profile');
+
+
+res.render('accounts/profile');
+/*
+  User.findOne({_id:req.user._id,function (err,user) {
+    if(err) return next(err);
+
+  }});*/
 });
 
 
 router.get("/login",function(req,res){
-if (req.user) {
+/*if (req.user) {
   res.redirect("/");
 }
-else {
+else {*/
   res.render("accounts/login");
-}});
+/*}*/});
 
 router.post("/login",passport.authenticate('local-login',{
   successRedirect: "/profile",
