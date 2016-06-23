@@ -25,8 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.engine('ejs',ejsmate);
 app.set('view engine','ejs');
 app.use(express.static(__dirname+'/public'));
-app.use(mainroutes);
-app.use(userroutes);
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session())
@@ -46,6 +44,8 @@ app.use(flash());
 
 
 
+app.use(mainroutes);
+app.use(userroutes);
 
 
 

@@ -4,15 +4,10 @@ var passport=require('passport');
 var passportConf= require('../config/passport');
 
 
-/*
-router.get("/login",function(req,res){
-if (req.user) {
-res.redirect("/");
-}
-else {
-res.render("accounts/login",{message : req.flash("loginMessage")});
-}});*/
-
+router.get('/profile',function(req,res)
+{
+  res.render('accounts/profile');
+});
 
 
 router.get("/login",function(req,res){

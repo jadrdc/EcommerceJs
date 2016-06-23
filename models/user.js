@@ -36,7 +36,7 @@ var Schema=mongose.Schema;
       })
     });});
 
-    UserSchema.methods.comparePassword=function()
+    UserSchema.methods.comparePassword=function(password)
     {return bcrypt.compareSync(password,this.password)};
 
 
