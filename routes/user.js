@@ -8,12 +8,15 @@ router.get('/profile',function(req,res,next)
 {
 
 
-res.render('accounts/profile');
-/*
-  User.findOne({_id:req.user._id,function (err,user) {
-    if(err) return next(err);
+User.findById(req.user._id,function(err,user)
+{
 
-  }});*/
+  res.render('accounts/profile',{userdata : user });
+});
+
+
+
+
 });
 
 
